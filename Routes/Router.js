@@ -7,7 +7,7 @@ const Router = express()
 
 
 
-Router.get("/chat/:channelId/:check", TwitchChat)
+Router.get("/chat/:channelId/start", TwitchChat)
 
 Router.get("/getChermotes",ChermotesController)
 

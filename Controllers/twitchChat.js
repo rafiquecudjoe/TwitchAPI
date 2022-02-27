@@ -16,7 +16,6 @@ const client = new tmi.Client({
 	channels: [ channelId ]
 });
     
-    if (check === 'start') {
 
        client.connect().catch(console.error);  
         
@@ -28,7 +27,6 @@ client.on('message', (channel, tags, message, self) => {
 });
         
          return res.status(200).send("Chat Started")
-    }
 
   
    
