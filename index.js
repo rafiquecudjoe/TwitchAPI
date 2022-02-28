@@ -1,5 +1,7 @@
 const express = require("express");
-const Router = require("./Routes/Router")
+const TwitchChat = require('./Controllers/twitchChat');
+const Cheermotes = require("./Controllers/getCheermotes");
+
 
 require('dotenv').config()
 
@@ -7,9 +9,10 @@ const app = express()
 
 
 app.use(express.json())
-app.use(Router)
 
 
+TwitchChat()
+Cheermotes()
 
 const Port = 6000
 

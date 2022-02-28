@@ -1,10 +1,8 @@
 const tmi = require('tmi.js');
 
 
-const TwitchChat = (req, res) => {
+const TwitchChat = () => {
     
-    const { check, channelId } = req.params
-
 // CHAT
 
 const client = new tmi.Client({
@@ -13,24 +11,18 @@ const client = new tmi.Client({
 		username: process.env.USER,
 		password: process.env.TWITCH
 	},
-	channels: [ channelId ]
+	channels: [ 'rafiqueacudjoe' ]
 });
     
 
-       client.connect().catch(console.error);  
+    client.connect().catch(console.error);  
         
-client.on('message', (channel, tags, message, self) => {
+    client.on('message', (channel, tags, message, self) => {
 	if(self) return;
 	if(message.toLowerCase() === '!hello') {
 		client.say(channel, `@${tags.username}, heya!`);
 	}
 });
-        
-         return res.status(200).send("Chat Started")
-
-  
-   
-
 
 
 }
